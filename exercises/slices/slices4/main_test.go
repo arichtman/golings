@@ -1,7 +1,6 @@
 // slices4
 // Make me compile!
 
-// I AM NOT DONE
 package main_test
 
 import (
@@ -11,7 +10,7 @@ import (
 
 func TestGetOnlyFirstName(t *testing.T) {
 	names := []string{"John", "Maria", "Carl", "Peter"}
-	firstName := names[3]
+	firstName := names[0]
 
 	if firstName != "John" {
 		t.Errorf("firstName value must be John")
@@ -20,7 +19,7 @@ func TestGetOnlyFirstName(t *testing.T) {
 
 func TestGetFirstTwoNames(t *testing.T) {
 	names := []string{"John", "Maria", "Carl", "Peter"}
-	firstTwoNames := names[5:10]
+	firstTwoNames := names[:2]
 	expectedFirstTwoNames := []string{"John", "Maria"}
 
 	if !reflect.DeepEqual(firstTwoNames, expectedFirstTwoNames) {
@@ -30,7 +29,8 @@ func TestGetFirstTwoNames(t *testing.T) {
 
 func TestGetLastTwoNames(t *testing.T) {
 	names := []string{"John", "Maria", "Carl", "Peter"}
-	lastTwoNames := names[5:10]
+	start := len(names) - 2
+	lastTwoNames := names[start:]
 	expectedLastTwoNames := []string{"Carl", "Peter"}
 
 	if !reflect.DeepEqual(lastTwoNames, expectedLastTwoNames) {

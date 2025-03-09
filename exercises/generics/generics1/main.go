@@ -1,16 +1,18 @@
 // generics1
 // Make me compile!
 
-// I AM NOT DONE
 package main
 
 import "fmt"
 
+type MyType struct{}
+
 func main() {
 	print("Hello, World!")
 	print(42)
+	print(MyType{})
 }
 
-func print(value) {
+func print(value any) {
 	fmt.Println(value)
 }
